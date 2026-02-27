@@ -5,17 +5,18 @@ public class PalindromeCheckerApp {
       System.out.println("Input text:");
       String str =input.nextLine();
 
-      boolean isPalindrome=false;
-      for(int i=0;i<str.length()/2;i++){
-          for(int j=str.length()-1;j>=0;j--){
-              if(str.charAt(i)==str.charAt(j)){
+      String rev="";
+      for(int i=str.length()-1;i>=0;i--){
 
-                  isPalindrome=true;
-              }
-          }
+          rev += str.charAt(i);
       }
+
+      boolean isPalindrome=str.equals(rev);
+
       if(isPalindrome){
           System.out.println("Entered String is a Palindrome");
+      }else{
+          System.out.println("Entered string is not a palindrome");
       }
       input.close();
     }
