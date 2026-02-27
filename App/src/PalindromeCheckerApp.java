@@ -1,14 +1,23 @@
-/**
- * Application entry point
- *
- * This is a Java Palindrome Checker App Welcome Message
- *
- * @author Developer
- * @Version 1.0
- */
+import java.util.Scanner;
 public class PalindromeCheckerApp {
   public static void main(String[] args){
-      System.out.println("Welcome to the Palindrome Checker Management System");
-      System.out.println("Version : 1.0");
-   System.out.println("System initialized successfully.");}
+      Scanner input = new Scanner(System.in);
+      System.out.println("Input text:");
+      String str =input.nextLine();
+
+      boolean isPalindrome=false;
+      for(int i=0;i<str.length()/2;i++){
+          for(int j=str.length()-1;j>=0;j--){
+              if(str.charAt(i)==str.charAt(j)){
+
+                  isPalindrome=true;
+              }
+          }
+      }
+      if(isPalindrome){
+          System.out.println("Entered String is a Palindrome");
+      }
+      input.close();
+    }
+
 }
