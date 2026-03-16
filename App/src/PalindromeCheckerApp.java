@@ -47,6 +47,7 @@ class IterativeStrategy implements PalindromeStrategy {
             if (text.charAt(left++) != text.charAt(right--)) return false;
         return true;
     }
+}
 
     public String getName() {
         return "Iterative Strategy";
