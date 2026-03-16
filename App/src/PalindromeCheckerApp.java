@@ -22,20 +22,20 @@ public class PalindromeCheckerApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("=== Recursive Palindrome Checker ===");
+        System.out.println("=== Case-Insensitive & Space-Ignored Palindrome Checker ===");
         System.out.print("Enter a string to check: ");
         String input = scanner.nextLine();
 
-        // Remove spaces and convert to lowercase for uniform checking
+        // Normalize string: remove spaces, convert to lowercase
         String cleanedInput = input.replaceAll("\\s+", "").toLowerCase();
 
-        // Call recursive method
+        // Call recursive palindrome checker
         boolean result = isPalindrome(cleanedInput, 0, cleanedInput.length() - 1);
 
         if (result) {
-            System.out.println("\"" + input + "\" is a palindrome.");
+            System.out.println("\"" + input + "\" is a palindrome (ignoring case and spaces).");
         } else {
-            System.out.println("\"" + input + "\" is not a palindrome.");
+            System.out.println("\"" + input + "\" is not a palindrome (ignoring case and spaces).");
         }
 
         scanner.close();
