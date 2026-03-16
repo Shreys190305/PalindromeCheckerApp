@@ -70,3 +70,24 @@ public class PalindromeCheckerApp {
         scanner.close();
     }
 }
+
+public class PalindromeCheckerApp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("=== Object-Oriented Palindrome Checker ===");
+        System.out.print("Enter a string to check: ");
+        String input = scanner.nextLine();
+
+        PalindromeChecker checker = new PalindromeChecker(input);
+        boolean result = checker.checkPalindrome();
+
+        if (result) {
+            System.out.println("\"" + input + "\" is a palindrome.");
+        } else {
+            System.out.println("\"" + input + "\" is not a palindrome.");
+        }
+
+        scanner.close();
+    }
+}
