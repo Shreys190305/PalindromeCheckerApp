@@ -1,23 +1,45 @@
 import java.util.Scanner;
-public class PalindromeCheckerApp {
-  public static void main(String[] args){
-      Scanner input = new Scanner(System.in);
-      System.out.println("Input text:");
-      String str =input.nextLine();
 
-      boolean isPalindrome=false;
-      for(int i=0;i<str.length()/2;i++){
-          for(int j=str.length()-1;j>=0;j--){
-              if(str.charAt(i)==str.charAt(j)){
+class PalindromeChecker {
+    private String input;
 
-                  isPalindrome=true;
-              }
-          }
-      }
-      if(isPalindrome){
-          System.out.println("Entered String is a Palindrome");
-      }
-      input.close();
+    public PalindromeChecker(String input) {
+        this.input = input;
     }
 
+    public boolean checkPalindrome() {
+        String cleanedInput = input.replaceAll("\\s+", "").toLowerCase();
+        return isPalindrome(cleanedInput, 0, cleanedInput.length() - 1);
+    }
+
+    private boolean isPalindrome(String str, int start, int end) {
+        if (start >= end) {
+            return true;
+        }
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+        return isPalindrome(str, start + 1, end - 1);
+    }
+}
+
+public class PalindromeCheckerApp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("=== Object-Oriented Palindrome Checker ===");
+        System.out.print("Enter a string to check: ");
+        String input = scanner.nextLine();
+
+        PalindromeChecker checker = new PalindromeChecker(input);
+        boolean result = checker.checkPalindrome();
+
+        if (result) {
+            System.out.println("\"" + input + "\" is a palindrome.");
+        } else {
+            System.out.println("\"" + input + "\" is not a palindrome.");
+        }
+
+        scanner.close();
+    }
 }
